@@ -34,6 +34,12 @@ vim.keymap.set('n', 'gy', function()
 end, {noremap = true, silent = true, desc = "Open yazi in new tab"}
 );
 
+vim.keymap.set('n', '<C-d>', '<C-d>zz');
+vim.keymap.set('n', '<C-u>', '<C-u>zz');
+vim.keymap.set('n', '<C-f>', '<C-f>zz');
+vim.keymap.set('n', '<C-b>', '<C-b>zz');
+vim.keymap.set('n', 'Y', 'yy');
+
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.MyTabLine()"
 
