@@ -26,9 +26,9 @@ vim.keymap.set('n', '<leader>c', 'zc', { desc = 'close fold' })
 vim.keymap.set('n', '<leader>O', 'zR', { desc = 'open all folds' })
 vim.keymap.set('n', '<leader>C', 'zM', { desc = 'close all folds' })
 
-vim.keymap.set('n', 'tn', ':tabnew<CR>', {noremap = true, silent = true});
+vim.keymap.set('n', 'gn', ':tabnew<CR>', {noremap = true, silent = true});
 
-vim.keymap.set('n', 'ty', function() 
+vim.keymap.set('n', 'gy', function() 
 	vim.cmd('tabnew')
 	require("yazi").yazi()
 end, {noremap = true, silent = true, desc = "Open yazi in new tab"}

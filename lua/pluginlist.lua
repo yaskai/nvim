@@ -8,6 +8,7 @@ return {
         end
     },
 
+	--[[
     {
         "sainnhe/gruvbox-material",
 		priority = 1000,
@@ -17,8 +18,8 @@ return {
 			vim.cmd("colorscheme gruvbox-material")
         end
     },
+	--]]
 
-	--[[
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
@@ -26,16 +27,15 @@ return {
 			vim.cmd("colorscheme rose-pine")
 		end
 	},
-	--]]
 
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-	
+	"nvzone/volt",
 
 	{
 		"eoh-bse/minintro.nvim",
-		opts = { color = "#ebdbb2" },
+		opts = { color = "#eb6f92" },
 		config = true,
 		lazy = false, 
 	},
@@ -66,14 +66,7 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
     },
-
-	{
-		"nvzone/typr",
-		dependencies = "nvzone/volt",
-		opts = {},
-		cmd = { "Typr", "TyprStats" },
-	},
-
+	
 	{
 		"ellisonleao/carbon-now.nvim",
 		lazy = true,
@@ -102,5 +95,15 @@ return {
 			"folke/snacks.nvim"
 		}
 	},
+
+	{ 
+		"nvim-tree/nvim-web-devicons",
+		opts = {} 
+	},
+
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	}
 }
 
