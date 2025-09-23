@@ -1,3 +1,4 @@
+-- pluglinlist.lua
 return {
 { 'numToStr/Comment.nvim', opts = {} },
 
@@ -28,9 +29,27 @@ return {
 		end
 	},
 
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    --"williamboman/mason.nvim",
+    --"williamboman/mason-lspconfig.nvim",
+	--"mason-org/mason.nvim",
+    --"mason-org/mason-lspconfig.nvim",
+
     "neovim/nvim-lspconfig",
+
+	{
+		"mason-org/mason.nvim",
+		opts = {}
+	},
+
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+	},
+
 	"nvzone/volt",
 
 	{
@@ -104,6 +123,44 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { 'nvim-tree/nvim-web-devicons' }
-	}
+	},
+
+	--[[
+	{
+		"nvim-neorg/neorg",
+		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		version = "*", -- Pin Neorg to the latest stable release
+		config = true,
+	},
+	]]--
+
+	{
+	  "nvim-neorg/neorg",
+	  lazy = false,       -- don't lazy load (it breaks parsers/workspaces)
+	  version = "*",      -- use latest stable release
+	  build = ":Neorg sync-parsers",
+	  dependencies = { "nvim-lua/plenary.nvim" },
+	  config = function()
+		require("neorg").setup {
+		  load = {
+			["core.defaults"] = {}, -- loads common defaults
+			["core.concealer"] = {}, -- adds pretty icons
+			["core.dirman"] = { -- workspace manager
+			  config = {
+				workspaces = {
+				  notes = "~/Documents/Notes",
+				},
+				default_workspace = "notes",
+			  },
+			},
+			["core.journal"] = {
+			  config = {
+				workspace = "notes",
+			  },
+			},
+		  },
+		}
+	  end,
+	},
 }
 

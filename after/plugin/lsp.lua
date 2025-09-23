@@ -1,3 +1,4 @@
+--[[
 local on_attach = function(_, bufnr)
 
   local bufmap = function(keys, func)
@@ -78,3 +79,4 @@ require("mason-lspconfig").setup_handlers({
         }
     end,
 })
+--]]

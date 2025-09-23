@@ -26,19 +26,23 @@ vim.keymap.set('n', '<leader>c', 'zc', { desc = 'close fold' })
 vim.keymap.set('n', '<leader>O', 'zR', { desc = 'open all folds' })
 vim.keymap.set('n', '<leader>C', 'zM', { desc = 'close all folds' })
 
-vim.keymap.set('n', 'gn', ':tabnew<CR>', {noremap = true, silent = true});
+vim.keymap.set('n', 'gn', ':tabnew<CR>', {noremap = true, silent = true})
 
 vim.keymap.set('n', 'gy', function() 
 	vim.cmd('tabnew')
 	require("yazi").yazi()
 end, {noremap = true, silent = true, desc = "Open yazi in new tab"}
-);
+)
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz');
-vim.keymap.set('n', '<C-u>', '<C-u>zz');
-vim.keymap.set('n', '<C-f>', '<C-f>zz');
-vim.keymap.set('n', '<C-b>', '<C-b>zz');
-vim.keymap.set('n', 'Y', 'yy');
+-- Paste from previous register
+vim.keymap.set('n', ',p', '"0p')
+vim.keymap.set('n', ',P', '"0P')
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-f>', '<C-f>zz')
+vim.keymap.set('n', '<C-b>', '<C-b>zz')
+vim.keymap.set('n', 'Y', 'yy')
 
 vim.o.showtabline = 2
 vim.o.tabline = "%!v:lua.MyTabLine()"
@@ -64,4 +68,3 @@ function _G.MyTabLine()
   s = s .. '%#TabLineFill#'
   return s
 end
-
